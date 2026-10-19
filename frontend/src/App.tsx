@@ -22,7 +22,7 @@ interface DailyMetric {
   log_date: string;
 }
 
-const API_BASE = 'http://localhost:8000/api';
+const API_BASE = 'https://personal-ops-api.onrender.com';
 
 function App() {
   const [habits, setHabits] = useState<Habit[]>([]);
