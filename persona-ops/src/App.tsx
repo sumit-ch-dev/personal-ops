@@ -156,168 +156,45 @@ function App() {
   };
 
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        background: "#151719",
-        color: "#F1F2EF",
-        fontFamily:
-          "Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-        boxSizing: "border-box",
-        padding: "40px 20px 64px",
-      }}
-    >
-      <main
-        style={{
-          maxWidth: "620px",
-          width: "100%",
-          margin: "0 auto",
-        }}
-      >
+    <div className="tracker-container">
+      <main className="tracker-main">
         {/* Page Header */}
-        <header style={{ marginBottom: "28px" }}>
-          <p
-            style={{
-              color: "#A3B8A0",
-              fontSize: "12px",
-              fontWeight: 600,
-              letterSpacing: "0.1em",
-              margin: "0 0 10px",
-            }}
-          >
-            PERSONAL OPS TRACKER
-          </p>
-
-          <h1
-            style={{
-              fontSize: "30px",
-              lineHeight: 1.25,
-              fontWeight: 600,
-              letterSpacing: "-0.035em",
-              margin: "0 0 8px",
-            }}
-          >
-            Daily overview
-          </h1>
-
-          <p
-            style={{
-              color: "#A1A6A3",
-              fontSize: "14px",
-              lineHeight: 1.6,
-              margin: 0,
-            }}
-          >
+        <header className="tracker-header">
+          <p className="tracker-eyebrow">PERSONAL OPS TRACKER</p>
+          <h1 className="tracker-title">Daily overview</h1>
+          <p className="tracker-subtitle">
             Your habits, your focus, one day at a time.
           </p>
         </header>
 
         {/* Date Selector */}
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            alignItems: "center",
-            justifyContent: "space-between",
-            gap: "12px",
-            background: "#202325",
-            border: "1px solid #383D3D",
-            borderRadius: "10px",
-            padding: "12px 14px",
-            marginBottom: "32px",
-            boxSizing: "border-box",
-          }}
-        >
-          <label
-            htmlFor="logDate"
-            style={{
-              color: "#A1A6A3",
-              fontSize: "13px",
-              fontWeight: 500,
-            }}
-          >
+        <div className="date-selector-card">
+          <label htmlFor="logDate" className="date-label">
             Tracking date
           </label>
-
           <input
             type="date"
             id="logDate"
             value={selectedDate}
             onChange={(e) => setSelectedDate(e.target.value)}
-            style={{
-              background: "transparent",
-              color: "#F1F2EF",
-              border: "1px solid #454B48",
-              borderRadius: "6px",
-              padding: "8px",
-              fontSize: "14px",
-              fontFamily: "inherit",
-              maxWidth: "100%",
-              colorScheme: "dark",
-              boxSizing: "border-box",
-            }}
+            className="date-input"
           />
         </div>
 
         {/* Deep Work Metric */}
-        <section
-          aria-labelledby="deep-work-heading"
-          style={{ marginBottom: "36px" }}
-        >
-          <div style={{ marginBottom: "18px" }}>
-            <h2
-              id="deep-work-heading"
-              style={{
-                fontSize: "21px",
-                lineHeight: 1.4,
-                fontWeight: 600,
-                letterSpacing: "-0.02em",
-                margin: "0 0 5px",
-              }}
-            >
+        <section aria-labelledby="deep-work-heading" className="tracker-section">
+          <div className="section-header">
+            <h2 id="deep-work-heading" className="section-title">
               Deep work
             </h2>
-
-            <p
-              style={{
-                color: "#A1A6A3",
-                fontSize: "14px",
-                lineHeight: 1.6,
-                margin: 0,
-              }}
-            >
-              Record your focused hours
-            </p>
+            <p className="section-description">Record your focused hours</p>
           </div>
 
-          <form
-            onSubmit={handleSaveMetric}
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              alignItems: "center",
-              gap: "10px",
-            }}
-          >
-            <div
-              style={{
-                flex: "1 1 200px",
-                minWidth: 0,
-              }}
-            >
-              <label
-                htmlFor="deepWorkHours"
-                style={{
-                  display: "block",
-                  color: "#C6CBC6",
-                  fontSize: "13px",
-                  fontWeight: 500,
-                  marginBottom: "8px",
-                }}
-              >
+          <form onSubmit={handleSaveMetric} className="metric-form">
+            <div className="input-group">
+              <label htmlFor="deepWorkHours" className="form-label">
                 Hours today
               </label>
-
               <input
                 id="deepWorkHours"
                 type="number"
@@ -327,143 +204,49 @@ function App() {
                 placeholder="e.g. 4.5"
                 value={deepWorkHours}
                 onChange={(e) => setDeepWorkHours(e.target.value)}
-                style={{
-                  width: "100%",
-                  minHeight: "44px",
-                  padding: "10px 12px",
-                  boxSizing: "border-box",
-                  background: "#202325",
-                  color: "#F1F2EF",
-                  border: "1px solid #454B48",
-                  borderRadius: "8px",
-                  fontSize: "14px",
-                  fontFamily: "inherit",
-                  outlineOffset: "3px",
-                }}
+                className="tracker-input"
               />
             </div>
 
-            <button
-              type="submit"
-              style={{
-                minHeight: "44px",
-                padding: "0 18px",
-                marginTop: "21px",
-                background: "#A3B8A0",
-                color: "#182019",
-                border: "1px solid transparent",
-                borderRadius: "8px",
-                fontSize: "14px",
-                fontWeight: 600,
-                fontFamily: "inherit",
-                cursor: "pointer",
-              }}
-            >
+            <button type="submit" className="btn-primary btn-metric">
               Save metric
             </button>
           </form>
         </section>
 
         {/* Daily Habits */}
-        <section
-          aria-labelledby="habits-heading"
-          style={{ marginBottom: "40px" }}
-        >
-          <div style={{ marginBottom: "16px" }}>
-            <h2
-              id="habits-heading"
-              style={{
-                fontSize: "21px",
-                lineHeight: 1.4,
-                fontWeight: 600,
-                letterSpacing: "-0.02em",
-                margin: "0 0 5px",
-              }}
-            >
+        <section aria-labelledby="habits-heading" className="tracker-section-habits">
+          <div className="section-header">
+            <h2 id="habits-heading" className="section-title">
               Daily habits
             </h2>
-
-            <p
-              style={{
-                color: "#A1A6A3",
-                fontSize: "14px",
-                lineHeight: 1.6,
-                margin: 0,
-              }}
-            >
-              Habits for {selectedDate}
-            </p>
+            <p className="section-description">Habits for {selectedDate}</p>
           </div>
 
           {habits.length === 0 ? (
-            <p
-              style={{
-                color: "#A1A6A3",
-                fontSize: "14px",
-                lineHeight: 1.7,
-                padding: "16px 0",
-                margin: 0,
-                borderTop: "1px solid #303536",
-                borderBottom: "1px solid #303536",
-              }}
-            >
+            <p className="empty-habits">
               No habits added yet. Create one below to get started.
             </p>
           ) : (
-            <ul
-              style={{
-                listStyle: "none",
-                padding: 0,
-                margin: 0,
-              }}
-            >
+            <ul className="habits-list">
               {habits.map((habit) => {
                 const isChecked = logs[habit.id] || false;
 
                 return (
-                  <li
-                    key={habit.id}
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "16px",
-                      padding: "16px 4px",
-                      borderBottom: "1px solid #303536",
-                    }}
-                  >
-                    <div
-                      style={{
-                        flex: 1,
-                        minWidth: 0,
-                      }}
-                    >
+                  <li key={habit.id} className="habit-item">
+                    <div className="habit-content">
                       <div
+                        className={`habit-title ${isChecked ? "habit-title-checked" : "habit-title-unchecked"
+                          }`}
                         style={{
-                          color: isChecked ? "#A1A6A3" : "#E8EAE6",
-                          fontSize: "15px",
-                          lineHeight: 1.5,
-                          fontWeight: 500,
-                          textDecoration: isChecked
-                            ? "line-through"
-                            : "none",
-                          overflowWrap: "anywhere",
+                          textDecoration: isChecked ? "line-through" : "none",
                         }}
                       >
                         {habit.title}
                       </div>
 
                       {habit.description && (
-                        <div
-                          style={{
-                            color: "#929A95",
-                            fontSize: "13px",
-                            lineHeight: 1.6,
-                            marginTop: "3px",
-                            overflowWrap: "anywhere",
-                          }}
-                        >
-                          {habit.description}
-                        </div>
+                        <div className="habit-desc">{habit.description}</div>
                       )}
                     </div>
 
@@ -473,14 +256,7 @@ function App() {
                       onChange={() => handleToggle(habit.id)}
                       aria-label={`Mark ${habit.title} as ${isChecked ? "incomplete" : "complete"
                         }`}
-                      style={{
-                        width: "20px",
-                        height: "20px",
-                        flexShrink: 0,
-                        margin: 0,
-                        accentColor: "#A3B8A0",
-                        cursor: "pointer",
-                      }}
+                      className="habit-checkbox"
                     />
                   </li>
                 );
@@ -491,58 +267,19 @@ function App() {
 
         {/* Create Habit */}
         <section aria-labelledby="create-habit-heading">
-          <div
-            style={{
-              borderTop: "1px solid #303536",
-              paddingTop: "24px",
-            }}
-          >
-            <h2
-              id="create-habit-heading"
-              style={{
-                fontSize: "19px",
-                lineHeight: 1.4,
-                fontWeight: 600,
-                letterSpacing: "-0.02em",
-                margin: "0 0 6px",
-              }}
-            >
+          <div className="create-habit-wrapper">
+            <h2 id="create-habit-heading" className="create-habit-title">
               Add a habit
             </h2>
-
-            <p
-              style={{
-                color: "#A1A6A3",
-                fontSize: "14px",
-                lineHeight: 1.6,
-                margin: "0 0 18px",
-              }}
-            >
+            <p className="create-habit-desc">
               Create a habit to track each day.
             </p>
 
-            <form
-              onSubmit={handleCreateHabit}
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "12px",
-              }}
-            >
+            <form onSubmit={handleCreateHabit} className="create-habit-form">
               <div>
-                <label
-                  htmlFor="newHabitTitle"
-                  style={{
-                    display: "block",
-                    color: "#C6CBC6",
-                    fontSize: "13px",
-                    fontWeight: 500,
-                    marginBottom: "7px",
-                  }}
-                >
+                <label htmlFor="newHabitTitle" className="form-label field-spacing">
                   Habit title
                 </label>
-
                 <input
                   id="newHabitTitle"
                   type="text"
@@ -550,73 +287,25 @@ function App() {
                   value={newTitle}
                   onChange={(e) => setNewTitle(e.target.value)}
                   required
-                  style={{
-                    width: "100%",
-                    minHeight: "44px",
-                    padding: "10px 12px",
-                    boxSizing: "border-box",
-                    background: "#202325",
-                    color: "#F1F2EF",
-                    border: "1px solid #454B48",
-                    borderRadius: "8px",
-                    fontSize: "14px",
-                    fontFamily: "inherit",
-                  }}
+                  className="tracker-input"
                 />
               </div>
 
               <div>
-                <label
-                  htmlFor="newHabitDescription"
-                  style={{
-                    display: "block",
-                    color: "#C6CBC6",
-                    fontSize: "13px",
-                    fontWeight: 500,
-                    marginBottom: "7px",
-                  }}
-                >
-                  Description <span style={{ color: "#929A95" }}>(optional)</span>
+                <label htmlFor="newHabitDescription" className="form-label field-spacing">
+                  Description <span className="optional-text">(optional)</span>
                 </label>
-
                 <input
                   id="newHabitDescription"
                   type="text"
                   placeholder="Add a little context"
                   value={newDesc}
                   onChange={(e) => setNewDesc(e.target.value)}
-                  style={{
-                    width: "100%",
-                    minHeight: "44px",
-                    padding: "10px 12px",
-                    boxSizing: "border-box",
-                    background: "#202325",
-                    color: "#F1F2EF",
-                    border: "1px solid #454B48",
-                    borderRadius: "8px",
-                    fontSize: "14px",
-                    fontFamily: "inherit",
-                  }}
+                  className="tracker-input"
                 />
               </div>
 
-              <button
-                type="submit"
-                style={{
-                  alignSelf: "flex-start",
-                  minHeight: "44px",
-                  padding: "0 18px",
-                  marginTop: "4px",
-                  background: "#A3B8A0",
-                  color: "#182019",
-                  border: "1px solid transparent",
-                  borderRadius: "8px",
-                  fontSize: "14px",
-                  fontWeight: 600,
-                  fontFamily: "inherit",
-                  cursor: "pointer",
-                }}
-              >
+              <button type="submit" className="btn-primary btn-create">
                 Create habit
               </button>
             </form>
